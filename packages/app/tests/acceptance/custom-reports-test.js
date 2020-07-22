@@ -5,6 +5,7 @@ import { click, currentURL, find, visit, waitFor } from '@ember/test-helpers';
 import { linkContains } from 'navi-core/test-support/contains-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import { clickItemFilter } from 'navi-reports/test-support/report-builder';
+import { clickTrigger } from 'ember-basic-dropdown/test-support/helpers';
 import backstop from 'ember-backstop/test-support/backstop';
 
 module('Acceptance | custom reports', function(hooks) {
@@ -56,7 +57,11 @@ module('Acceptance | custom reports', function(hooks) {
     await backstop(assert, { name: 'REPORT DIMENSION FILTER MENU' });
     await selectChoose('.filter-values--dimension-select__trigger', 'Luigi');
     assert.dom('.filter-builder-dimension__values').containsText('Luigi', 'A filter value can be selected');
-
+    await selectChoose('.filter-builder__select-trigger', 'Between');
+    await clickTrigger('.filter-values--date-range-input__low-value');
+    await click('.ember-power-calendar-day[data-date="2020-07-10"]');
+    await clickTrigger('.filter-values--date-range-input__high-value');
+    await click('.ember-power-calendar-day[data-date="2020-07-11"]');
     // Run Report
     await click('.navi-report__run-btn');
     assert.dom('.table-widget').exists('Data visualization is shown');

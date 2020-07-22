@@ -2,7 +2,6 @@
 
 module.exports = {
   id: `ember-backstop test`,
-  docker: true,
   viewports: [
     {
       label: 'webview',
@@ -10,7 +9,6 @@ module.exports = {
       height: 900
     }
   ],
-
   onReadyScript: `puppet/onReady.js`,
   scenarios: [
     {
