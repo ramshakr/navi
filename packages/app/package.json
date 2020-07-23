@@ -35,7 +35,7 @@
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.6.0",
-    "ember-backstop": "git+ssh://git@github.com/holderb5/ember-backstop.git#docker-support",
+    "ember-backstop": "holderb5/ember-backstop#docker-support",
     "ember-basic-dropdown": "^1.1.3",
     "ember-cli": "~3.15.2",
     "ember-cli-app-version": "^3.2.0",
