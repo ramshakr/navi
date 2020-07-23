@@ -3,6 +3,9 @@ os: linux
 jdk:
   - openjdk8
 
+services:
+  - docker
+
 git:
   depth: false
 addons:
@@ -42,6 +45,9 @@ install:
     nvm install ${NODE_VERSION};
     npm config set spin false;
     npm ci;
+    fi
+  - if [[ "${PACKAGE}" == "navi-app" ]]; then
+    docker run -p 3000:3000 --rm -it --mount type=bind,source="`pwd`",target=/src backstopjs/backstopjs:4.5.1 remote "--moby=true";
     fi
 script:
   - if [[ "${PACKAGE}" != "navi-app" && "${PACKAGE}" != "navi-webservice" ]]; then
