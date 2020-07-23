@@ -2,6 +2,7 @@
 
 module.exports = {
   id: `ember-backstop test`,
+  docker: true,
   viewports: [
     {
       label: 'webview',
