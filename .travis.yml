@@ -3,9 +3,6 @@ os: linux
 jdk:
   - openjdk8
 
-services:
-  - docker
-
 git:
   depth: false
 addons:
