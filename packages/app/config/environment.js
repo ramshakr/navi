@@ -26,6 +26,10 @@ module.exports = function(environment) {
        */
     },
 
+    'ember-backstop': {
+      disableBackstop: process.env.BACKSTOP !== 'true'
+    },
+
     navi: {
       defaultDataSource: 'default',
       FEATURES: {
